@@ -2,9 +2,14 @@ const express = require('express');
 
 const router = express.Router();
 
-module.exports = () => {
-  router.get('/', (req, res) => {
-    return res.send('Speakers list');
+module.exports = (params) => {
+  const { speakersService } = params;
+
+  router.get('/', async (req, res) => {
+    // 5) Grab speakerServices from the params we've been passing down
+    const speakers = await speakersService.getList();
+    // return res.send('Speakers list');
+    return res.json(speakers);
   });
 
   router.get('/:shortname', (req, res) => {

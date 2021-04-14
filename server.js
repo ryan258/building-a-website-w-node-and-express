@@ -1,6 +1,13 @@
 const express = require('express');
 const path = require('path');
 
+// 1) require the service classes
+const FeedbackService = require('./services/FeedbackService');
+const SpeakersService = require('./services/SpeakerService');
+// 2) instantiate an obj of each service
+const feedbackService = new FeedbackService('./data/feedback.json');
+const speakersService = new SpeakersService('./data/speakers.json');
+
 const routes = require('./routes');
 
 const app = express();
@@ -13,7 +20,14 @@ app.set('views', path.join(__dirname, './views'));
 // use some middleware to serve static assets
 app.use(express.static(path.join(__dirname, './static')));
 
-app.use('/', routes());
+app.use(
+  '/',
+  routes({
+    // 3) Pass the service instances into the router
+    feedbackService,
+    speakersService,
+  })
+);
 
 /*
 app.get('/speakers', (req, res) => {
