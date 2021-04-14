@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const cookieSession = require('cookie-session');
 
 // 1) require the service classes
 const FeedbackService = require('./services/FeedbackService');
@@ -13,6 +14,16 @@ const routes = require('./routes');
 const app = express();
 
 const port = 3000;
+
+// this makes express trust cookies that are passed through a reverse proxy
+// - this prevents the cookie system from failing when you push this to production
+app.set('trust proxy', 1);
+app.use(
+  cookieSession({
+    name: 'session',
+    keys: ['fiosdjfsidjofsjfia', 'adsfjhsdkasdf'],
+  })
+);
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'));
