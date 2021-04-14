@@ -25,7 +25,23 @@ app.use(
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'));
 
+app.locals.siteName = 'ROUX Meetups ';
+
 app.use(express.static(path.join(__dirname, './static')));
+
+app.use(async (req, res, next) => {
+  // this someVariable would become available to any template/partial file
+  // res.locals.someVariable = 'hello';
+  try {
+    const names = await speakersService.getNames();
+    res.locals.speakerNames = names;
+    console.log(res.locals);
+    next();
+  } catch (err) {
+    next(err);
+  }
+  // return next();
+});
 
 app.use(
   '/',
