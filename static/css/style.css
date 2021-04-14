@@ -76,6 +76,10 @@ header .navbar-brand {
   line-height: 160%;
 }
 
+.speakerslist-img {
+  max-width: 100%;
+}
+
 .speakerslist-title {
   color: #000000 !important;
 }
@@ -139,8 +143,4 @@ header .navbar-brand {
   .pixgrid img {
     width: 20%;
   }
-}
-
-.rick {
-  max-width: 100%;
 }
