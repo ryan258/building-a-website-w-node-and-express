@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 const express = require('express');
 const path = require('path');
 const cookieSession = require('cookie-session');
@@ -28,6 +29,20 @@ app.set('views', path.join(__dirname, './views'));
 app.locals.siteName = 'ROUX Meetups ';
 
 app.use(express.static(path.join(__dirname, './static')));
+
+//! THROWING FROM AN ASYNC FUNCTION WILL CRASH AN APP
+//! NEVER THROW FROM EXPRESS ROUTES and MIDDLEWARES bc it can take down your app.
+
+/*
+app.get('/throw', (req, res, next) => {
+  setTimeout(() => {
+    //! - so you HAVE TO USE NEXT in ASYNC function
+    // throw new Error('Something did throw! 3 seconds later...')
+    return next(new Error('Something did throw! 3 seconds later...'));
+  }, 3000);
+  // throw new Error('Something did throw!');
+});
+*/
 
 app.use(async (req, res, next) => {
   // this someVariable would become available to any template/partial file
