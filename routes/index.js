@@ -9,6 +9,7 @@ module.exports = (params) => {
   const { speakersService } = params;
 
   router.get('/', async (req, res, next) => {
+    // return next(new Error('Some error... 👻'));
     try {
       const artwork = await speakersService.getAllArtwork();
       const topSpeakers = await speakersService.getList();
