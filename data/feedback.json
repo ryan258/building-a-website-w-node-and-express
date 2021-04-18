@@ -1,5 +1,11 @@
 [
   {
+    "name": "Ike",
+    "email": "ike@coke.com",
+    "title": "This meetup was almost as refreshing as a Coke!",
+    "message": "I was happy to see they weren&#x27;t drinking Pepsi."
+  },
+  {
     "name": "Manny",
     "email": "mann@large.com",
     "title": ":: Flipper Sounds ::",
