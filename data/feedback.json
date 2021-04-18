@@ -1,5 +1,17 @@
 [
   {
+    "name": "Manny",
+    "email": "mann@large.com",
+    "title": ":: Flipper Sounds ::",
+    "message": ":: approving flipper gestures ::"
+  },
+  {
+    "name": "Orson",
+    "email": "orson@thefarm.com",
+    "title": "Moo-Tastic!",
+    "message": "I thought it was a 5 moo meet-up!"
+  },
+  {
     "name": "Frank",
     "email": "frank-smith@gmail.com",
     "title": "Best Meetup Ever",
