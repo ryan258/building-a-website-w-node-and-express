@@ -18,3 +18,8 @@
 <% if (locals.artwork) { %>
 <script src="/js/pixgrid.js"></script>
 <% } %>
+
+<!-- if we're on the feedback page we'll load the clientside feedback js -->
+<% if (locals.feedback) { %>
+<script src="/js/feedback.js"></script>
+<% } %>
