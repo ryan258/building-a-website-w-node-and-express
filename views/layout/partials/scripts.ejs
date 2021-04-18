@@ -13,4 +13,8 @@
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
   crossorigin="anonymous"
 ></script>
+
+<!-- conditionally render the pixgrid library if we have a page that is using it -->
+<% if (locals.artwork) { %>
 <script src="/js/pixgrid.js"></script>
+<% } %>
